@@ -42,7 +42,7 @@
     { regex: /(\d+(\.\d+)?)[ ]?(lb|pound|pounds)\b/gi, factor: 0.453592, unit: 'kg' },
     { regex: /(\d+(\.\d+)?)[ ]?(yd|yard|yards)\b/gi, factor: 0.9144, unit: 'm' },
     // Feet and inches: 3'5", 3’5”, 3′5″, 3 feet 5 inches, 3 foot 5 inch
-    { regex: /(\d+)\s*(?:'|’|′|\s?ft|\s?feets?|\s?foots?)[\s]*([\d]+)(?:"|”|″|\s?inches?|\s?inch|\s?in)\b/gi, custom: (m, f, i) => {
+    { regex: /(\d+)\s*(?:'|’|′|\s?ft|\s?feets?|\s?foots?)[\s]*([\d]+)(?:"|”|″|""|''|\s?inches?|\s?inch|\s?in)\b/gi, custom: (m, f, i) => {
       let meters = (+f * 0.3048) + (+i * 0.0254);
       let metric = meters < 1 ? (meters * 100).toFixed(2) + ' cm' : meters.toFixed(2) + ' m';
       return metric + ` (${m.trim()})`;
@@ -53,8 +53,8 @@
       let metric = meters < 1 ? (meters * 100).toFixed(2) + ' cm' : meters.toFixed(2) + ' m';
       return metric + ` (${m.trim()})`;
     }},
-    // Only inches: 7", 7.5", 7”, 7″, 7 inch(es), 7 in
-    { regex: /(\d+[\.,]?\d*)\s*(?:"|”|″|\s?inches?|\s?inch|\s?in)(?=\s|$)/gi, custom: (m, i) => ((parseFloat(i.replace(',', '.')) * 2.54).toFixed(2) + ' cm (' + m.trim() + ')') },
+    // Only inches: 7", 7.5", 7”, 7″, 7'', 7 inch(es), 7 in
+    { regex: /(\d+[\.,]?\d*)\s*(?:""|''|"|”|″|\s?inches?|\s?inch|\s?in)(?=\D|$)/gi, custom: (m, i) => ((parseFloat(i.replace(',', '.')) * 2.54).toFixed(2) + ' cm (' + m.trim() + ')') },
   ];
 
   function convertText(text) {
