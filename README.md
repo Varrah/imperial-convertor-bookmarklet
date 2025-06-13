@@ -13,7 +13,7 @@ This project provides a JavaScript bookmarklet that automatically converts imper
    ```sh
    node build-bookmarklet.js
    ```
-2. Open the generated `imperial2metric.bookmarklet.js` file and copy the bookmarklet code.
+2. Open the generated `imperial2metric.bookmarklet.js` file or use the result print out by the build script and copy the bookmarklet code.
 3. Create a new bookmark in your browser and paste the code as the URL.
 4. Click the bookmarklet on any webpage to convert imperial units to metric.
 
@@ -39,7 +39,7 @@ This project provides a JavaScript bookmarklet that automatically converts imper
    ```sh
    node build-bookmarklet.js
    ```
-2. Откройте файл `imperial2metric.bookmarklet.js` и скопируйте код букмарклета.
+2. Откройте файл `imperial2metric.bookmarklet.js` или используйте выведенный скриптом сборки результат и скопируйте код букмарклета.
 3. Создайте новую закладку в браузере и вставьте код как URL.
 4. Кликните по букмарклету на любой странице для конвертации имперских единиц в метрические.
 
