@@ -1,0 +1,12 @@
+{
+  "name": "imperial2metric",
+  "version": "1.0.0",
+  "description": "Imperial to metric bookmarklet build",
+  "main": "imperial2metric.js",
+  "scripts": {
+    "build": "node build-bookmarklet.js"
+  },
+  "author": "",
+  "license": "MIT"
+}
+
